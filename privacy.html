@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Our Store</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+
+.footer-body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+    }
+    
+    .footer-link {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease;
+    }
+    
+    .footer-list {
+        list-style: none;
+    }
+    
+    .footer-img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Footer Styles */
+    .footer-main {
+        background-color: #9c6644;
+        color: #fff;
+        padding: 40px 0 20px;
+    }
+    
+    .footer-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+    
+    .footer-logo {
+        max-width: 150px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-heading {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 0px;
+        height: 2px;
+        background-color: #fff;
+    }
+    
+    .footer-list-item {
+        margin-bottom: 10px;
+    }
+    
+    .footer-link:hover {
+        text-decoration: underline;
+    }
+    
+    /* Social Icons */
+    .footer-social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .footer-social-icon {
+        width: 50px; /* Increased size */
+        height: 50px; /* Increased size */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white; /* White background */
+        border-radius: 50%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    /* Change color on hover */
+    .footer-social-icon:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+        color: #ffcc00; /* Change icon color on hover */
+    }
+    
+    /* Individual colors for each icon */
+    .footer-social-icon i.fa-instagram {
+        color: #E1306C; /* Instagram - Pink */
+    }
+    
+    .footer-social-icon i.fa-facebook-f {
+        color: #1877F2; /* Facebook - Blue */
+    }
+    
+    .footer-social-icon i.fa-youtube {
+        color: #FF0000; /* YouTube - Red */
+    }
+ 
+    /* Copyright */
+    .footer-copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .footer-content {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .footer-content {
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    }
+    
+    @media (max-width: 319px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+    }
+        .nav-container {
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    position: relative;
+    z-index: 100;
+    width: 100vw; /* Use viewport width instead of 100% */
+    margin-left: calc(-50vw + 50%); /* Center it if parent has width constraints */
+    box-sizing: border-box; /* Ensure padding doesn't add to width */
+}
+
+/* Logo Section */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #4a2f1d;
+}
+
+.nav-logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.nav-name {
+    text-shadow: 2px 2px 4px rgb(239, 239, 4);
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a2f1d;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #c17756;
+}
+
+
+
+/* Hamburger Menu (Hidden by Default) */
+.nav-hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #4a2f1d;
+}
+
+/* Responsive Navigation */
+@media (max-width: 992px) {
+    .nav-hamburger {
+        display: block;
+        z-index: 100;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 50%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        width: 100%;
+        
+    }
+}
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0e6da;
+            padding: 20px;
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><g opacity="0.1" fill="%23c26e3f"><circle cx="100" cy="100" r="10"/><path d="M100,85 C100,85 90,75 80,75 C70,75 60,85 60,85 C60,85 70,95 80,95 C90,95 100,85 100,85 Z"/><path d="M100,85 C100,85 110,75 120,75 C130,75 140,85 140,85 C140,85 130,95 120,95 C110,95 100,85 100,85 Z"/><path d="M100,85 C100,85 100,75 100,65 C100,55 110,45 110,45 C110,45 120,55 120,65 C120,75 100,85 100,85 Z"/><path d="M100,85 C100,85 100,95 100,105 C100,115 110,125 110,125 C110,125 120,115 120,105 C120,95 100,85 100,85 Z"/><circle cx="60" cy="60" r="5"/><circle cx="140" cy="60" r="5"/><circle cx="60" cy="140" r="5"/><circle cx="140" cy="140" r="5"/></g></svg>');
+            background-attachment: fixed;
+            background-size: 200px 200px;
+        }
+
+        /* Header styles */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #222;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: inline-block;
+        }
+
+        .header h1::before, .header h1::after {
+            content: '';
+            display: inline-block;
+            width: 60px;
+            height: 40px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 60 40"><g fill="%23c26e3f"><circle cx="30" cy="20" r="6"/><path d="M30,13 C30,13 25,8 20,8 C15,8 10,13 10,13 C10,13 15,18 20,18 C25,18 30,13 30,13 Z"/><path d="M30,13 C30,13 35,8 40,8 C45,8 50,13 50,13 C50,13 45,18 40,18 C35,18 30,13 30,13 Z"/><path d="M30,27 C30,27 25,32 20,32 C15,32 10,27 10,27 C10,27 15,22 20,22 C25,22 30,27 30,27 Z"/><path d="M30,27 C30,27 35,32 40,32 C45,32 50,27 50,27 C50,27 45,22 40,22 C35,22 30,27 30,27 Z"/></g></svg>');
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            opacity: 0.7;
+        }
+
+        .header h1::before {
+            margin-right: 20px;
+        }
+
+        .header h1::after {
+            margin-left: 20px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content container */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(194, 110, 63, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, #c26e3f, #e9c48c, #c26e3f);
+        }
+
+        /* Floral divider */
+        .floral-divider {
+            height: 30px;
+            margin: 20px 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="30" viewBox="0 0 400 30"><g fill="%23c26e3f" opacity="0.3"><circle cx="200" cy="15" r="5"/><path d="M180,15 h40"/><path d="M200,15 C200,15 190,10 185,5 C180,0 175,0 170,5 C165,10 170,20 180,20 C190,20 200,15 200,15 Z"/><path d="M200,15 C200,15 210,10 215,5 C220,0 225,0 230,5 C235,10 230,20 220,20 C210,20 200,15 200,15 Z"/><circle cx="150" cy="15" r="3"/><circle cx="250" cy="15" r="3"/><circle cx="120" cy="15" r="3"/><circle cx="280" cy="15" r="3"/><path d="M100,15 h50"/><path d="M250,15 h50"/></g></svg>');
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        /* Policy sections */
+        .policy-section {
+            margin-bottom: 30px;
+            position: relative;
+            padding: 5px 15px;
+            border-left: 3px solid rgba(194, 110, 63, 0.3);
+        }
+
+        .policy-section h2 {
+            color: #c26e3f;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+            font-family: 'Georgia', serif;
+            position: relative;
+        }
+
+        .policy-section h2::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="%23c26e3f" opacity="0.6"><circle cx="12" cy="12" r="3"/><path d="M12,5 C12,5 9,8 6,8 C3,8 0,5 0,5 C0,5 3,2 6,2 C9,2 12,5 12,5 Z"/><path d="M12,5 C12,5 15,2 18,2 C21,2 24,5 24,5 C24,5 21,8 18,8 C15,8 12,5 12,5 Z"/><path d="M12,19 C12,19 9,16 6,16 C3,16 0,19 0,19 C0,19 3,22 6,22 C9,22 12,19 12,19 Z"/><path d="M12,19 C12,19 15,22 18,22 C21,22 24,19 24,19 C24,19 21,16 18,16 C15,16 12,19 12,19 Z"/></g></svg>');
+            right: 0;
+            top: 5px;
+        }
+
+        .policy-section h3 {
+            color: #444;
+            font-size: 1.4rem;
+            margin: 20px 0 10px;
+            font-family: 'Georgia', serif;
+        }
+
+        .policy-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .policy-section ul, .policy-section ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .policy-section li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .policy-section ul li::marker {
+            color: #c26e3f;
+        }
+
+        /* Last updated info */
+        .last-updated {
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+            color: #777;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(194, 110, 63, 0.3);
+        }
+
+        /* Contact section */
+        .contact-section {
+            background-color: rgba(194, 110, 63, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><g opacity="0.05" fill="%23c26e3f"><circle cx="150" cy="150" r="8"/><path d="M150,130 C150,130 135,115 120,115 C105,115 90,130 90,130 C90,130 105,145 120,145 C135,145 150,130 150,130 Z"/><path d="M150,130 C150,130 165,115 180,115 C195,115 210,130 210,130 C210,130 195,145 180,145 C165,145 150,130 150,130 Z"/><path d="M150,170 C150,170 135,185 120,185 C105,185 90,170 90,170 C90,170 105,155 120,155 C135,155 150,170 150,170 Z"/><path d="M150,170 C150,170 165,185 180,185 C195,185 210,170 210,170 C210,170 195,155 180,155 C165,155 150,170 150,170 Z"/><path d="M130,150 C130,150 115,135 115,120 C115,105 130,90 130,90 C130,90 145,105 145,120 C145,135 130,150 130,150 Z"/><path d="M130,150 C130,150 115,165 115,180 C115,195 130,210 130,210 C130,210 145,195 145,180 C145,165 130,150 130,150 Z"/><path d="M170,150 C170,150 185,135 185,120 C185,105 170,90 170,90 C170,90 155,105 155,120 C155,135 170,150 170,150 Z"/><path d="M170,150 C170,150 185,165 185,180 C185,195 170,210 170,210 C170,210 155,195 155,180 C155,165 170,150 170,150 Z"/><circle cx="50" cy="50" r="5"/><circle cx="250" cy="50" r="5"/><circle cx="50" cy="250" r="5"/><circle cx="250" cy="250" r="5"/></g></svg>');
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px;
+            align-items: center;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info span:first-child {
+            font-weight: bold;
+            color: #c26e3f;
+        }
+
+        /* Button styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #c26e3f;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+
+        /* Decorative elements */
+        .alpona-corner {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.2;
+        }
+
+        .alpona-top-left {
+            top: 0;
+            left: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><g fill="%23c26e3f"><circle cx="60" cy="60" r="6"/><path d="M60,40 C60,40 50,30 40,30 C30,30 20,40 20,40 C20,40 30,50 40,50 C50,50 60,40 60,40 Z"/><path d="M60,40 C60,40 70,30 80,30 C90,30 100,40 100,40 C100,40 90,50 80,50 C70,50 60,40 60,40 Z"/><path d="M60,80 C60,80 50,90 40,90 C30,90 20,80 20,80 C20,80 30,70 40,70 C50,70 60,80 60,80 Z"/><path d="M60,80 C60,80 70,90 80,90 C90,90 100,80 100,80 C100,80 90,70 80,70 C70,70 60,80 60,80 Z"/><path d="M40,60 C40,60 30,50 30,40 C30,30 40,20 40,20 C40,20 50,30 50,40 C50,50 40,60 40,60 Z"/><path d="M40,60 C40,60 30,70 30,80 C30,90 40,100 40,100 C40,100 50,90 50,80 C50,70 40,60 40,60 Z"/><path d="M80,60 C80,60 90,50 90,40 C90,30 80,20 80,20 C80,20 70,30 70,40 C70,50 80,60 80,60 Z"/><path d="M80,60 C80,60 90,70 90,80 C90,90 80,100 80,100 C80,100 70,90 70,80 C70,70 80,60 80,60 Z"/></g></svg>');
+        }
+
+        .alpona-bottom-right {
+            bottom: 0;
+            right: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><g fill="%23c26e3f"><circle cx="60" cy="60" r="6"/><path d="M60,40 C60,40 50,30 40,30 C30,30 20,40 20,40 C20,40 30,50 40,50 C50,50 60,40 60,40 Z"/><path d="M60,40 C60,40 70,30 80,30 C90,30 100,40 100,40 C100,40 90,50 80,50 C70,50 60,40 60,40 Z"/><path d="M60,80 C60,80 50,90 40,90 C30,90 20,80 20,80 C20,80 30,70 40,70 C50,70 60,80 60,80 Z"/><path d="M60,80 C60,80 70,90 80,90 C90,90 100,80 100,80 C100,80 90,70 80,70 C70,70 60,80 60,80 Z"/><path d="M40,60 C40,60 30,50 30,40 C30,30 40,20 40,20 C40,20 50,30 50,40 C50,50 40,60 40,60 Z"/><path d="M40,60 C40,60 30,70 30,80 C30,90 40,100 40,100 C40,100 50,90 50,80 C50,70 40,60 40,60 Z"/><path d="M80,60 C80,60 90,50 90,40 C90,30 80,20 80,20 C80,20 70,30 70,40 C70,50 80,60 80,60 Z"/><path d="M80,60 C80,60 90,70 90,80 C90,90 80,100 80,100 C80,100 70,90 70,80 C70,70 80,60 80,60 Z"/></g></svg>');
+        }
+        .footer-social-icon {
+    text-decoration: none !important; /* Remove underline */
+    border-bottom: none; /* Ensure no bottom border */
+}
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header h1::before, .header h1::after {
+                width: 40px;
+                height: 30px;
+                background-size: 40px 30px;
+            }
+            
+            .content-container {
+                padding: 30px;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .floral-divider {
+                background-size: 300px 30px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header h1::before, .header h1::after {
+                display: none;
+            }
+            
+            .content-container {
+                padding: 20px;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.4rem;
+            }
+
+            .contact-section {
+                padding: 20px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .alpona-corner {
+                width: 80px;
+                height: 80px;
+                background-size: 80px 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-logo"> 
+            <img src="public/images/logo.png" alt="pizza">
+            <h3 class="nav-name">BongPizza</h3>
+        </div>
+        <div class="nav-links">
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="./racipe.html">Recipes</a>
+            <a href="./Contact.html">Contact Us</a>
+            <a href="./Career.html">Career</a>
+            <a href="./testimonial.html">Testimonials</a>
+            <a href="./Getfreanches.html">Get Franchise</a>
+            <a href="store.html">Our Store</a>
+        </div>
+        <script>document.addEventListener("DOMContentLoaded", function () {
+            const navHamburger = document.querySelector(".nav-hamburger");
+            const navLinks = document.querySelector(".nav-links");
+        
+            navHamburger.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+        });
+        </script>
+        <div class="nav-hamburger">☰</div>
+    </nav>
+    <header class="header">
+        <h1>Privacy Policy</h1>
+        <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
+    </header>
+
+    <div class="content-container">
+        <div class="alpona-corner alpona-top-left"></div>
+        
+        <div class="policy-section">
+            <h2>Information We Collect</h2>
+            <p>We may collect personal information that you voluntarily provide to us when you:</p>
+            <ul>
+                <li>Register on our website</li>
+                <li>Place an order</li>
+                <li>Subscribe to our newsletter</li>
+                <li>Participate in contests or surveys</li>
+                <li>Contact our customer service</li>
+            </ul>
+            
+            <p>The personal information we may collect includes:</p>
+            <ul>
+                <li>Name, email address, phone number, and billing address</li>
+                <li>Credit card or payment information</li>
+                <li>Social media profile information when you connect with us through social media</li>
+                <li>Any other information you choose to provide</li>
+            </ul>
+        </div>
+
+        <div class="floral-divider"></div>
+
+        <div class="policy-section">
+            <h2>How We Use Your Information</h2>
+            <p>We may use the information we collect for various purposes, including to:</p>
+            <ul>
+                <li>Process and manage your purchases</li>
+                <li>Provide and maintain our services</li>
+                <li>Send you marketing communications</li>
+                <li>Respond to your inquiries and provide customer support</li>
+                <li>Improve our website, products, and services</li>
+                <li>Conduct research and analysis to understand our customers better</li>
+                <li>Prevent fraudulent transactions and monitor against theft</li>
+                <li>Comply with legal obligations</li>
+            </ul>
+        </div>
+
+        <div class="floral-divider"></div>
+
+        <div class="policy-section">
+            <h2>Disclosure of Your Information</h2>
+            <p>We may share your information with:</p>
+            <ul>
+                <li>Service providers who perform services on our behalf</li>
+                <li>Business partners with whom we jointly offer products or services</li>
+                <li>Third parties in connection with a business transaction</li>
+                <li>Legal authorities when required by law or to protect our rights</li>
+            </ul>
+            
+            <p>We do not sell, trade, or rent your personal information to third parties for marketing purposes without your consent.</p>
+        </div>
+
+        <div class="floral-divider"></div>
+
+        <div class="policy-section">
+            <h2>Security of Your Information</h2>
+            <p>We implement appropriate security measures to protect the security of your information. However, please note that no data transmission over the Internet or storage technology can be guaranteed to be 100% secure.</p>
+        </div>
+
+        <div class="floral-divider"></div>
+
+        <div class="policy-section">
+            <h2>Your Privacy Rights</h2>
+            <p>Depending on your location, you may have certain rights regarding your personal information, such as:</p>
+            <ul>
+                <li>Right to access the personal information we hold about you</li>
+                <li>Right to request correction of inaccurate information</li>
+                <li>Right to request deletion of your information</li>
+                <li>Right to object to processing of your information</li>
+                <li>Right to data portability</li>
+                <li>Right to withdraw consent</li>
+            </ul>
+        </div>
+
+        <div class="floral-divider"></div>
+
+        <div class="policy-section">
+            <h2>Cookies and Tracking Technologies</h2>
+            <p>We use cookies and similar tracking technologies to collect information about your browsing activities. You can set your browser to refuse all or some browser cookies, but this may affect your ability to access certain features of our website.</p>
+        </div>
+
+        <div class="floral-divider"></div>
+
+        <div class="policy-section contact-section">
+            <h2>Contact Us</h2>
+            <p>If you have questions or concerns about this Privacy Policy or our practices, please contact us at:</p>
+            <div class="contact-info">
+                <span>Email:</span>
+                <span>privacy@ourstore.com</span>
+                <span>Phone:</span>
+                <span>+1 (555) 123-4567</span>
+                <span>Address:</span>
+                <span>123 Store Street, Ahmedabad, India</span>
+            </div>
+        </div>
+
+        <p class="last-updated">Last Updated: March 11, 2025</p>
+        <div class="alpona-corner alpona-bottom-right"></div>
+    </div>
+
+    <a href="#" class="back-to-top">↑</a>
+
+
+    <footer class="footer-main">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <img src="public/images/logo.png" alt="BongPizza Logo" class="footer-logo">
+                    <p class="footer-text">A Touch of Bengal</p>
+                   
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-heading">Home</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="./about.html" class="footer-link">About</a></li>
+                        <li class="footer-list-item"><a href="./menu.html" class="footer-link">Menu</a></li>
+                        <li class="footer-list-item"><a href="./Career.html" class="footer-link">Career</a></li>
+                        <li class="footer-list-item"><a href="./store.html" class="footer-link">Our Store</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-heading">Our Store</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="./Getfreanches.html" class="footer-link">Get Franchise</a></li>
+                        <li class="footer-list-item"><a href="./testimonial.html" class="footer-link">Testimonials</a></li>
+                        <!-- <li class="footer-list-item"><a href="#" class="footer-link">Responsible Disclosure</a></li> -->
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item"><a href="./Contact.html" class="footer-link">Get Help</a></li>
+                        <li class="footer-list-item"><a href="#" class="footer-link">Get Feedback</a></li>
+                        <li class="footer-list-item"><a href="./Contact.html" class="footer-link">Contact Us</a></li>
+                        <li class="footer-list-item"><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social-icons">
+                    <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            </div>
+            <div class="footer-copyright">
+                <p class="footer-text">&copy; 2025 Bong Pizza. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

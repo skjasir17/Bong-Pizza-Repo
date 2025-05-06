@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menu</title>
+    <link rel="stylesheet" href="/stylesheets/loco.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-image: url(/images/background/image.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            padding: 20px;
+        }
+
+        #minicircle{
+            transition: all cubic-bezier(0.19,1,0.22,1) 1s;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3f1d0d;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #222;
+            margin-bottom: 40px;
+            font-weight: 900;
+        }
+
+        .pizza-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .pizza-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .image-container {
+            width: 100%;
+            padding-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 220px; /* Fixed height for image container */
+        }
+
+        .pizza-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .pizza-img:hover {
+            transform: scale(1.05);
+        }
+
+        .pizza-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .pizza-price {
+            font-size: 1.2rem;
+            color: #e67e22;
+            margin-bottom: 15px;
+        }
+
+        .order-btn {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            width: 80%;
+            max-width: 200px;
+        }
+
+        .order-btn:hover {
+            background-color: #333;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .pizza-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pizza-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pizza-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+            
+            .pizza-card {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="minicircle"></div>
+    <div class="container">
+        <h1>Categories</h1>
+        
+        <div class="pizza-grid">
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Italian Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Italian Pizza</div>
+                <div class="pizza-price">Rs 199</div>
+                <button class="order-btn">Order now</button>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Veg Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Veg Pizza</div>
+                <div class="pizza-price">Rs 199</div>
+                <button class="order-btn">Order now</button>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Pizza Alla" class="pizza-img">
+                </div>
+                <div class="pizza-name">Pizza Alla</div>
+                <div class="pizza-price">Rs 199</div>
+                <button class="order-btn">Order now</button>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Cheese Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Cheese Pizza</div>
+                <div class="pizza-price">Rs 199</div>
+                <button class="order-btn">Order now</button>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Pepperoni Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Pepperoni Pizza</div>
+                <div class="pizza-price">Rs 249</div>
+                <button class="order-btn">Order now</button>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Margherita Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Margherita Pizza</div>
+                <div class="pizza-price">Rs 179</div>
+                <button class="order-btn">Order now</button>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="BBQ Chicken Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">BBQ Chicken Pizza</div>
+                <div class="pizza-price">Rs 299</div>
+                <button class="order-btn">Order now</button>
+            </div>
+            
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Hawaiian Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Hawaiian Pizza</div>
+                <div class="pizza-price">Rs 249</div>
+                <button class="order-btn">Order now</button>
+            </div>
+
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Veg Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Veg Pizza</div>
+                <div class="pizza-price">Rs 199</div>
+                <button class="order-btn">Order now</button>
+            </div>
+
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Veg Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Veg Pizza</div>
+                <div class="pizza-price">Rs 199</div>
+                <button class="order-btn">Order now</button>
+            </div>
+
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Veg Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Veg Pizza</div>
+                <div class="pizza-price">Rs 199</div>
+                <button class="order-btn">Order now</button>
+            </div>
+
+            <div class="pizza-card">
+                <div class="image-container">
+                    <img src="/images/piza33.png" alt="Veg Pizza" class="pizza-img">
+                </div>
+                <div class="pizza-name">Veg Pizza</div>
+                <div class="pizza-price">Rs 199</div>
+                <button class="order-btn">Order now</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script src="="/javascripts/index.js"></script>
+</body>
+</html>

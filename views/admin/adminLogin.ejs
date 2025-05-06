@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bongpizza</title>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Admin Register</h2>
+        <% if (error && error.length > 0) { %>
+            <% error.forEach(function(msg) { %>
+                <div class="flash error"><%= msg %></div>
+            <% }) %>
+        <% } %>
+        <form action="/admin/login" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">login</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Locator - Find Stores Near Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .store-finder {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        #nearMeBtn {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        #nearMeBtn:hover {
+            background-color: #3367d6;
+        }
+        
+        #storeResults {
+            margin-top: 20px;
+        }
+        
+        .store-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .store-item {
+            background-color: white;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .store-details {
+            flex-grow: 1;
+        }
+        
+        .store-distance {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .directions-btn {
+            background-color: #00a152;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 15px;
+        }
+        
+        .directions-btn:hover {
+            background-color: #008548;
+        }
+        
+        .loading,
+        .error-message,
+        .empty-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Store Locator</h1>
+        <p>Find stores within 5km of your current location</p>
+    </header>
+    
+    <main>
+        <div class="store-finder">
+            <button id="nearMeBtn">Find Stores Near Me</button>
+            <div id="storeResults"></div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nearMeButton = document.getElementById('nearMeBtn');
+            const storeResultsDiv = document.getElementById('storeResults');
+            
+            // Sample store data - replace with your actual store data
+            // Each store should have a name, latitude, and longitude
+            const stores = [
+            { id: 1, name: "Bong Pizza (Arambagh)", lat: 22.88095737425613, lng: 87.78981170379696 , address: "Arambagh - Burdwan Rd, Arambag, West Bengal 712601" },
+            { id: 2, name: "Bong Pizza (Baghajotin)", lat: 22.483644298868448,  lng: 88.3768688861561, address: " Baghajatin Station Rd, Baghajatin Colony, Chittaranjan Colony 6, Baghajatin Colony, Kolkata, West Bengal 700092" },
+            { id: 3, name: "Bong Pizza (Bagnan)", lat: 22.45850931423267,  lng: 87.9710423343463, address: "Beside Bagnan College, opposite of Apollo pharmacy, Bagnan, Howrah, West Bengal 711303" },
+                { id: 4, name: "Bong Pizza (Barasat)", lat:22.72381480490052, lng:  88.49254073526522 , address: "Bijaynagar, Kazipara, 1, Jessore Rd, beside Eco Nursing Home, Kolkata, West Bengal 700124" },
+                { id: 5, name: "Bong Pizza (Baruipur)", lat:22.372888855726508,  lng: 88.42109988818652, address: "202 Fillmore St" },
+                { id: 6, name: "Bong Pizza (Bhubaneswar)", lat: 20.347411476579094, lng:  85.82489839613059, address: "3rd Floor, City Mall, UD, opp. Shree leather, Patia, Bhubaneswar, Odisha 751024" },
+                { id: 7, name: "Bong Pizza (Chaipat)", lat: 22.56729446127761, lng:  87.8047346766016, address: "Gopiganj Sultannagar Rd, Chaipat, West Bengal 721211" },
+                { id: 8, name: "Bong Pizza (Chandipur)", lat: 22.08378, lng:   87.85472, address: "Digha Rd, Chandipur, Kalikakhali, West Bengal 721659" },
+                { id: 9, name: "Bong Pizza (Chandrakona Road)", lat: 22.73107354530098,  lng: 87.33914623068624, address: "Midnapore Rd, Chandrakona Town - Ghatal Rd, Durlavganj, Bila, West Bengal 721253" },
+                { id: 10, name: "Bong Pizza (Daspur)", lat: 22.606992368833577,  lng:  87.72134560573878, address: "Khudiram Basu Rd, Daspur, West Bengal 721211" },
+                { id: 11, name: "Bong Pizza (Debra)", lat:22.39262847164016,  lng: 87.5688552840687, address: "Harimati School, NH16, opposite to Debra, beside Bombay Road, Baragar, Debra, West Bengal 721126" },
+                { id: 12, name: "Bong Pizza (Digha)", lat: 21.623539738732646,  lng:  87.52203439404539, address: "Gobindabasan, Digha, West Bengal 721428" },
+                { id: 13, name: "Bong Pizza (Egra)", lat: 21.90358364091362, lng: 87.53412898832282  , address: "Egra College Rd, Kasaba, Egra, West Bengal 721429" },
+                { id: 14, name: "Bong Pizza (Goura)", lat: 22.527586570404523,  lng: 87.7445498974625, address: "Uttargobindanagar, Sekendari, West Bengal 721146" },
+                { id: 15, name: "Bong Pizza (Jhargram)", lat: 22.45288003653347,  lng:86.99517014054052 ,address: "SH 5, Nutandihi, Jhargram, West Bengal 721507" },
+                { id: 16, name: "Bong Pizza (Karolbag-Delhi)", lat: 28.653566126938202,  lng: 77.1880437932032 , address: "Krishna Nagar, Karol Bagh, New Delhi, Delhi, 110005" },
+                { id: 17, name: "Bong Pizza (Keshapat)", lat: 22.444714400753963,  lng: 87.7533304659055 , address: "Ghatal - Panskura Rd, Hatisal, West Bengal 721139" },
+                { id: 18, name: "Bong Pizza (Kharagpur)", lat: 22.375079162437814, lng:  87.34156410733605 , address:"Satkui, Kharagpur, West Bengal 721305" },
+                { id: 19, name:"Bong Pizza (Kolkata)", lat :22.614548794531284, lng :88.3780023179859  , address:"BEEU URBANITY 19 BT ROAD, More, Paikpara, Kolkata, West Bengal 700002" },
+                { id :20,name :"Bong Pizza (Main Branch)" ,lat :22.657471348922705, lng :87.73190808536626 ,address :"Kotulpur - Panna Rd, Kuspata, Ghatal, West Bengal 721212"},
+                { id :21,name :"Bong Pizza (Mandarmani)" ,lat :21.64864466261404,lng : 87.65243422162612,address :"Mandarmani, West Bengal 721423"},
+                { id :22,name :"Bong Pizza (Mecheda)" ,lat :22.410536460955818,  lng :87.86388556910111,address :"Sarada pan arat, Netaji polli 0ppsite, near Popular Nursing Home, Shantipur, Mecheda, West Bengal 721137"},
+                { id :23,name :"Bong Pizza (Memari)" ,lat :23.177743063264682,  lng :88.09539019185326,address :"Bong Pizza, behind State Bank of India, Nabapally, Memari, West Bengal 713146"},
+                { id :24,name :"Bong Pizza (Narajole)" ,lat :22.564473095973568, lng :87.60833818697792,address :"Kismat Narajole, Narajole, West Bengal 721211"},
+                { id :25,name :"Bong Pizza (Patna)" ,lat :25.623130144536816, lng :85.04109453472374,address :"Saguna More, Danapur Nizamat, Danapur, Patna, Bihar 801503"},
+                { id :26,name :"Bong Pizza (Rajarhat)" ,lat :22.633824137346416, lng : 88.4515651769634,address :"Bong Pizza, Basundhara Complex, Rajarhat Main Rd, Bablatala, Salua, Kolkata, West Bengal 700136"},
+                { id :27,name :"Bong Pizza (Tamluk)" ,lat :22.27524914293622,  lng :87.92682480497005,address :"Nimtala More School, Nimtala - Barabazar Connector, opposite to Kidzee, Tamluk, West Bengal 721636"},
+                { id :28,name :"Bong Pizza (Temathani)" ,lat :22.230473753084592, lng :87.56139720000004,address :"Dewanbar, Lutunia, West Bengal 721166"},
+                { id :29,name :"Bong Pizza (Uluberia)" ,lat :22.468302189185227,  lng :88.09804694864364,address :"Orisha Trunk Rd, Bazarpara, Uluberia, Howrah, West Bengal 711315"},
+                
+              
+                
+
+            ];
+            
+            nearMeButton.addEventListener('click', function() {
+                // Clear previous results
+                storeResultsDiv.innerHTML = '<div class="loading">Searching for nearby stores...</div>';
+                
+                // Get user's current location
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        function(position) {
+                            // Success callback
+                            const userLat = position.coords.latitude;
+                            const userLng = position.coords.longitude;
+                            
+                            // Find stores within 5km radius
+                            const nearbyStores = findNearbyStores(userLat, userLng, stores, 500);
+                            
+                            // Display the results
+                            displayNearbyStores(nearbyStores);
+                        },
+                        function(error) {
+                            // Error callback
+                            let errorMessage = 'Unable to access your location';
+                            
+                            switch(error.code) {
+                                case error.PERMISSION_DENIED:
+                                    errorMessage = 'Location access denied. Please enable location services to find nearby stores.';
+                                    break;
+                                case error.POSITION_UNAVAILABLE:
+                                    errorMessage = 'Your location information is unavailable.';
+                                    break;
+                                case error.TIMEOUT:
+                                    errorMessage = 'Request to get your location timed out.';
+                                    break;
+                            }
+                            
+                            storeResultsDiv.innerHTML = `<div class="error-message">${errorMessage}</div>`;
+                        }
+                    );
+                } else {
+                    storeResultsDiv.innerHTML = '<div class="error-message">Geolocation is not supported by your browser</div>';
+                }
+            });
+            
+            // Function to calculate distance between two points using Haversine formula
+            function calculateDistance(lat1, lng1, lat2, lng2) {
+                const R = 6371; // Radius of the Earth in km
+                const dLat = (lat2 - lat1) * Math.PI / 180;
+                const dLng = (lng2 - lng1) * Math.PI / 180;
+                
+                const a = 
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+                    Math.sin(dLng/2) * Math.sin(dLng/2);
+                
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                const distance = R * c; // Distance in km
+                
+                return distance;
+            }
+            
+            // Function to find stores within a given radius
+            function findNearbyStores(userLat, userLng, storeList, radius) {
+                const nearbyStores = storeList.filter(store => {
+                    const distance = calculateDistance(userLat, userLng, store.lat, store.lng);
+                    
+                    // If within radius, add distance property to store object
+                    if (distance <= radius) {
+                        store.distance = distance.toFixed(2);
+                        return true;
+                    }
+                    return false;
+                });
+                
+                // Sort by distance (closest first)
+                return nearbyStores.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+            }
+            
+            // Function to display nearby stores
+            function displayNearbyStores(nearbyStores) {
+                if (nearbyStores.length === 0) {
+                    storeResultsDiv.innerHTML = '<div class="empty-message">No stores found within 5km of your location</div>';
+                    return;
+                }
+                
+                let html = '<h3>Stores within 5km:</h3><ul class="store-list">';
+                
+                nearbyStores.forEach(store => {
+                    html += `
+                        <li class="store-item">
+                            <div class="store-details">
+                                <strong>${store.name}</strong>
+                                <div>${store.address}</div>
+                                <div class="store-distance">${store.distance} km away</div>
+                            </div>
+                            <button class="directions-btn" onclick="getDirections(${store.lat}, ${store.lng})">
+                                Get Directions
+                            </button>
+                        </li>
+                    `;
+                });
+                
+                html += '</ul>';
+                storeResultsDiv.innerHTML = html;
+            }
+        });
+
+        // Function to open directions in Google Maps
+        function getDirections(storeLat, storeLng) {
+            const url = `https://www.google.com/maps/dir/?api=1&destination=${storeLat},${storeLng}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

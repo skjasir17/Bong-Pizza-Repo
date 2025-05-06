@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Restaurant - Where Bengal Meets Italy</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Boxicons CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+
+    <link rel="stylesheet" href="/stylesheets/loco.css">
+
+</head>
+<body>
+    <div id="minicircle"></div>
+    <div id="main">
+    <nav class="nav">
+        <div class="logo"> <img src="images/LOGO NAME.png" alt="pizza" >
+            </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/menu">Menu</a>
+            <a href="/racipe">Recipes</a>
+            <a href="/contact">Contact Us</a>
+            <a href="/career">Career</a>
+            <a href="/testimonial">Testimonials</a>
+            <a href="/getfranchise">Get Franchise</a>
+            <a href="/store">Our Store</a>
+            <a href="/feedback">Feedback</a>
+
+        </div>
+        <div class="hamburger">☰</div>
+    </nav>
+
+    <section class="hero">
+        
+        <script>
+            const heroSwiper = new Swiper('.hero-slider', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                effect: 'fade',
+            });
+        </script>
+        <div class="alponaLeft"><img src="/images/alpona1.png" alt="alpona1"></div>
+        <div class="alponaRight"><img src="/images/alpona1.png" alt="alpona1"></div>
+        
+        <div class="hero-content">
+            <h1>Where Bengal Meets Italy In <span>Every Bite</span></h1>
+            <p>Experience the perfect fusion of Bengal's rich culinary heritage and Italy's classic flavors.</p>
+            
+            <div class="social-links">
+                 <div class="social-line"></div>
+                 <a href=""><i  class='bx bxl-instagram'></i></a>
+                 <a href=""><i class='bx bxl-facebook-circle' ></i></a>
+                 <a href=""><i class='bx bxl-linkedin' ></i></a>
+            </div>
+
+            <a href="/new" class="cta-button">Nearest Store</a>
+
+            <div class="rating">
+                <div class="avatar-group">
+                    <img src="/images/review.jpg" alt="User avatar 1">
+                    <img src="/images/review.jpg" alt="User avatar 2">
+                    <img src="/images/review.jpg" alt="User avatar 3">
+                </div>
+                <div class="rating-score">
+                    ⭐ 5.0
+                </div>
+            </div>
+        </div>
+
+        <div class="pizza-container">
+            <div class="pizza-outer-circle"></div>
+            <div class="pizzahut-image">
+                <img src=".//images/pizza.png" alt="Delicious pizza with toppings">
+                
+            </div>
+        </div>
+
+        
+    </section>
+    <section class="top">
+        <div class="container">
+            <div class="header">
+                <h1>Top Selling Pizza</h1>
+                <div class="navigation-controls">
+                  
+                    <a href="/top" class="navigation-button">See All</a>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div class="background-pattern"></div>
+                <div class="swiper pizza-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="pizza-card">
+                                <div class="pizza-image-container">
+                                    <img src="/images/pizza1.png" alt="Terracotta Pizza" class="pizza-image">
+                                </div>
+                                <div class="pizza-content">
+                                    <h2 class="pizza-name">Terracotta pizza</h2>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="pizza-card">
+                                <div class="pizza-image-container">
+                                    <img src="/images/pizza1.png" alt="Tomato Pizza" class="pizza-image">
+                                </div>
+                                <div class="pizza-content">
+                                    <h2 class="pizza-name">Tomato pizza</h2>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="pizza-card">
+                                <div class="pizza-image-container">
+                                    <img src="/images/pizza1.png" alt="Margherita Pizza" class="pizza-image">
+                                </div>
+                                <div class="pizza-content">
+                                    <h2 class="pizza-name">Margherita pizza</h2>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+       
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+    
+        document.querySelectorAll('.pizza-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Initialize Swiper
+        const swiper = new Swiper('.pizza-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                // when window width is >= 640px
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                // when window width is >= 992px
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            }
+        });
+    </script>
+
+
+<!-- Pizza Categories Section -->
+<section id="pizza-menu">
+    <div class="CD-container">
+        <!-- Header with title and see all link -->
+        <div class="CD-header">
+            <h2 class="CD-title">Categories</h2>
+            <a href="/catagory" class="CD-seeAll">See all</a>
+        </div>
+
+        <!-- Regular grid view (desktop and tablet) -->
+        <div class="CD-cards">
+            <div class="CD-card">
+                <img src="/images/pizaa22.png" alt="Italian Pizza" class="CD-cardImage">
+                <h3 class="CD-cardTitle">Italian Pizza</h3>
+                <span class="CD-cardPrice">Rs 199</span>
+                <button class="CD-orderBtn">Order now</button>
+            </div>
+            <div class="CD-card">
+                <img src="/images/piza35.png" alt="Veg Pizza" class="CD-cardImage">
+                <h3 class="CD-cardTitle">Veg Pizza</h3>
+                <span class="CD-cardPrice">Rs 199</span>
+                <button class="CD-orderBtn">Order now</button>
+            </div>
+            <div class="CD-card">
+                <img src="/images/piza33.png" alt="Pizza Alla" class="CD-cardImage">
+                <h3 class="CD-cardTitle">Pizza Alla</h3>
+                <span class="CD-cardPrice">Rs 199</span>
+                <button class="CD-orderBtn">Order now</button>
+            </div>
+            <div class="CD-card">
+                <img src="/images/piza34.png" alt="Cheese Pizza" class="CD-cardImage">
+                <h3 class="CD-cardTitle">Cheese Pizza</h3>
+                <span class="CD-cardPrice">Rs 199</span>
+                <button class="CD-orderBtn">Order now</button>
+            </div>
+        </div>
+
+        <!-- Swiper for mobile view -->
+        <div class="CD-swiper-container">
+            <div class="swiper CD-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide CD-swiper-slide">
+                        <div class="CD-card">
+                            <img src="/images/pizaa22.png" alt="Italian Pizza" class="CD-cardImage">
+                            <h3 class="CD-cardTitle">Italian Pizza</h3>
+                            <span class="CD-cardPrice">Rs 199</span>
+                            <button class="CD-orderBtn">Order now</button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide CD-swiper-slide">
+                        <div class="CD-card">
+                            <img src="/images/piza33.png" alt="Veg Pizza" class="CD-cardImage">""
+                            <h3 class="CD-cardTitle">Veg Pizza</h3>
+                            <span class="CD-cardPrice">Rs 199</span>
+                            <button class="CD-orderBtn">Order now</button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide CD-swiper-slide">
+                        <div class="CD-card">
+                            <img src="/images/piza34.png" alt="Pizza Alla" class="CD-cardImage">
+                            <h3 class="CD-cardTitle">Pizza Alla</h3>
+                            <span class="CD-cardPrice">Rs 199</span>
+                            <button class="CD-orderBtn">Order now</button>
+                        </div>
+                    </div>
+                    <div class="swiper-slide CD-swiper-slide">
+                        <div class="CD-card">
+                            <img src="/images/piza35.png" alt="Cheese Pizza" class="CD-cardImage">
+                            <h3 class="CD-cardTitle">Cheese Pizza</h3>
+                            <span class="CD-cardPrice">Rs 199</span>
+                            <button class="CD-orderBtn">Order now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation buttons -->
+                <div class="CD-navigation">
+                    <!-- <button class="CD-swiperPrev"></button>
+                    <button class="CD-swiperNext"></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.3.2/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiper = new Swiper('.CD-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            navigation: {
+                nextEl: '.CD-swiperNext',
+                prevEl: '.CD-swiperPrev',
+            },
+        });
+    });
+</script>
+
+
+
+<section class="try">
+    <div class="try background-pattern2"></div>
+    <div class="banner-image">
+        <img src="/images/Rectangle 25.png" alt="">
+        <p>20% OFF</p>
+        <button>try this now</button>
+    </div>
+</section>
+
+
+
+<section id="testimonials">
+   
+    <section class="RV-testimonial-section">
+        <h2 class="RV-section-title">What People Say</h2>
+        <p class="RV-section-subtitle">Discover what our delighted customers have to say about the unique blend of Bengal and Italy at Bong Pizza.</p>
+        
+        <div class="RV-testimonial-container">
+          
+            
+            <div class="RV-testimonial-slider" id="testimonialSlider">
+                <div class="RV-testimonial-card">
+                    <div class="RV-stars">★ ★ ★ ★ ★</div>
+                    <div class="RV-quote-icon">"</div>
+                    <p class="RV-testimonial-text">বং পিজ্জা একটি অনন্য মিশ্রণ যা বাংলার এবং ইতালির স্বাদকে একত্রিত করে যা সত্যিই অপ্রতিরোধ্য। গুণমান এবং স্বাদ সবসময় চমৎকার!</p>
+                    <div class="RV-testimonial-author">
+                        <img src="/images/review.jpg" alt="Author" class="RV-author-img">
+                        <div class="RV-author-name">Rahul Sen</div>
+                    </div>
+                </div>
+                
+                <div class="RV-testimonial-card">
+                    <div class="RV-stars">★ ★ ★ ★ ★</div>
+                    <div class="RV-quote-icon">"</div>
+                    <p class="RV-testimonial-text">Bong Pizza offers a unique blend of Bengali and Italian flavors that is truly irresistible. The quality and taste are always excellent!</p>
+                    <div class="RV-testimonial-author">
+                        <img src="/images/review.jpg" alt="Author" class="RV-author-img">
+                        <div class="RV-author-name">Suman Mistra</div>
+                    </div>
+                </div>
+                
+                <div class="RV-testimonial-card">
+                    <div class="RV-stars">★ ★ ★ ★ ★</div>
+                    <div class="RV-quote-icon">"</div>
+                    <p class="RV-testimonial-text">বং পিজ্জার স্বাদ এবং মান সত্যিই অসাধারণ। প্রতিটি কামড়ে বাংলার এবং ইতালির মিশ্রণ উপভোগ করা যায়।</p>
+                    <div class="RV-testimonial-author">
+                        <img src="/images/review.jpg" alt="Author" class="RV-author-img">
+                        <div class="RV-author-name">Abhisek Kumar</div>
+                    </div>
+                </div>
+                
+                <div class="RV-testimonial-card">
+                    <div class="RV-stars">★ ★ ★ ★ ★</div>
+                    <div class="RV-quote-icon">"</div>
+                    <p class="RV-testimonial-text">Bong Pizza's unique blend of Bengali and Italian flavors is a culinary delight. The quality and taste are consistently excellent, making it a favorite for pizza lovers!</p>
+                    <div class="RV-testimonial-author">
+                        <img src="/images/review.jpg" alt="Author" class="RV-author-img">
+                        <div class="RV-author-name">Sreya Bose</div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="RV-swiper-button RV-swiper-button-prev" onclick="moveSlider(-1)">❮</div>
+            <div class="RV-swiper-button RV-swiper-button-next" onclick="moveSlider(1)">❯</div>
+    </div>
+</section>
+    <script>
+        let currentPosition = 0;
+        const slider = document.getElementById('testimonialSlider');
+        const cards = document.querySelectorAll('.RV-testimonial-card');
+        const cardWidth = cards[0].offsetWidth + 20; // Card width + margin
+        const totalCards = cards.length;
+        let visibleCards = 3;
+        
+        // Update visible cards based on screen size
+        function updateVisibleCards() {
+            if (window.innerWidth >= 768) {
+                visibleCards = 3;
+            } else {
+                visibleCards = 1;
+            }
+        }
+        
+        function moveSlider(direction) {
+            updateVisibleCards();
+            
+            // Calculate max position (how far slider can move)
+            const maxPosition = totalCards - visibleCards;
+            
+            // Update position
+            currentPosition += direction;
+            
+            // Loop back to beginning/end if needed
+            if (currentPosition < 0) {
+                currentPosition = maxPosition;
+            } else if (currentPosition > maxPosition) {
+                currentPosition = 0;
+            }
+            
+            // Move the slider
+            const translateValue = -currentPosition * (100 / visibleCards) + '%';
+            slider.style.transform = `translateX(${translateValue})`;
+        }
+        
+        // Initial setup
+        updateVisibleCards();
+        
+        // Update on window resize
+        window.addEventListener('resize', function() {
+            updateVisibleCards();
+            // Reset position on resize to avoid layout issues
+            currentPosition = 0;
+            slider.style.transform = 'translateX(0)';
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+  let currentPosition = 0;
+  const slider = document.getElementById('testimonialSlider');
+  const cards = document.querySelectorAll('.RV-testimonial-card');
+  let totalCards = cards.length;
+  let visibleCards = 3;
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  // Function to update visible cards based on screen size
+  function updateVisibleCards() {
+    if (window.innerWidth >= 768) {
+      visibleCards = 3;
+    } else {
+      visibleCards = 1;
+    }
+  }
+  
+  // Function to move the slider
+  function moveSlider(direction) {
+    updateVisibleCards();
+    
+    // Calculate max position
+    const maxPosition = totalCards - visibleCards;
+    
+    // Update position
+    currentPosition += direction;
+    
+    // Loop back to beginning/end if needed
+    if (currentPosition < 0) {
+      currentPosition = maxPosition;
+    } else if (currentPosition > maxPosition) {
+      currentPosition = 0;
+    }
+    
+    // Move the slider - use percentage-based translation for consistent sizing
+    const translateValue = -currentPosition * (100 / visibleCards) + '%';
+    slider.style.transform = `translateX(${translateValue})`;
+  }
+  
+  // Touch event handlers
+  function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+  }
+  
+  function handleTouchEnd(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    handleSwipe();
+  }
+  
+  function handleSwipe() {
+    const touchThreshold = 50; // Minimum distance to register as swipe
+    // Calculate swipe distance
+    const swipeDistance = touchEndX - touchStartX;
+    
+    if (swipeDistance > touchThreshold) {
+      // Swiped right - show previous slide
+      moveSlider(-1);
+    } else if (swipeDistance < -touchThreshold) {
+      // Swiped left - show next slide
+      moveSlider(1);
+    }
+  }
+  
+  // Add touch event listeners
+  slider.addEventListener('touchstart', handleTouchStart, false);
+  slider.addEventListener('touchend', handleTouchEnd, false);
+  
+  // Add click event listeners to nav buttons
+  const prevButton = document.querySelector('.RV-swiper-button-prev');
+  const nextButton = document.querySelector('.RV-swiper-button-next');
+  
+  if (prevButton) {
+    prevButton.addEventListener('click', function() {
+      moveSlider(-1);
+    });
+  }
+  
+  if (nextButton) {
+    nextButton.addEventListener('click', function() {
+      moveSlider(1);
+    });
+  }
+  
+  // Initialize on page load
+  updateVisibleCards();
+  
+  // Update on window resize
+  window.addEventListener('resize', function() {
+    updateVisibleCards();
+    // Reset position on resize
+    currentPosition = 0;
+    slider.style.transform = 'translateX(0)';
+  });
+});
+    </script>
+</section>
+
+
+<section id="contact">
+    <div class="contact-container">
+        <div class="contact-background"></div>
+        <h2 class="contact-title">Contact us</h2>
+        <div class="contact-divider"></div>
+        <p class="contact-subtitle">We'd love to hear from you! Reach out to us with any questions, comments, or feedback.</p>
+        
+        <form class="contact-form">
+            <input type="text" class="contact-input" placeholder="Enter your name" required>
+            <input type="tel" class="contact-input" placeholder="Your Phone Number" required>
+            <textarea class="contact-textarea" placeholder="Message" required style="resize: none;"></textarea>
+            
+            <div class="contact-checkbox-container">
+                <input type="checkbox" class="contact-checkbox" id="terms" required>
+                <label for="terms" class="contact-checkbox-label">
+                    I agree to all the <a href="#" class="contact-link">terms and conditions</a> of this website.
+                </label>
+            </div>
+            
+            <button type="submit" class="contact-button">Send Message</button>
+        </form>
+    </div>
+</section>
+   
+
+<footer class="footer-main">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-nav">
+                <img src="/images/logo.png" alt="BongPizza Logo" class="footer-logo">
+                <p class="footer-text">A Touch of Bengal</p>
+               
+            </div>
+            <div class="footer-nav">
+                <h4 class="footer-heading">Home</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="./about.html" class="footer-link">About</a></li>
+                    <li class="footer-list-item"><a href="./menu.html" class="footer-link">Menu</a></li>
+                    <li class="footer-list-item"><a href="./Career.html" class="footer-link">Career</a></li>
+                    <li class="footer-list-item"><a href="./store.html" class="footer-link">Our Store</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4 class="footer-heading">Our Store</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="./Getfreanches.html" class="footer-link">Get Franchise</a></li>
+                    <li class="footer-list-item"><a href="./testimonial.html" class="footer-link">Testimonials</a></li>
+                    <!-- <li class="footer-list-item"><a href="#" class="footer-link">Responsible Disclosure</a></li> -->
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4 class="footer-heading">Support</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="./Contact.html" class="footer-link">Get Help</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Get Feedback</a></li>
+                    <li class="footer-list-item"><a href="./Contact.html" class="footer-link">Contact Us</a></li>
+                    <li class="footer-list-item"><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social-icons">
+                <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="footer-social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-text">&copy; 2025 Bong Pizza. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</div>
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/9.3.2/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src=".//javascripts/index.js"></script>
+</body>
+
+</html>
+
+
+
+

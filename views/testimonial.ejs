@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Section</title>
+    <link rel="stylesheet" href="/stylesheets/testimonial.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  
+</head>
+<body>
+
+    
+    <nav class="nav-container">
+        <div class="nav-logo"> 
+            <img src="/images/LOGO NAME.png" alt="pizza">
+            
+        </div>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/menu">Menu</a>
+            <a href="/racipe">Recipes</a>
+            <a href="/contact">Contact Us</a>
+            <a href="/career">Career</a>
+            <a href="/testimonial">Testimonials</a>
+            <a href="/getfranchise">Get Franchise</a>
+            <a href="/store">Our Store</a>
+        </div>
+        <script>document.addEventListener("DOMContentLoaded", function () {
+            const navHamburger = document.querySelector(".nav-hamburger");
+            const navLinks = document.querySelector(".nav-links");
+        
+            navHamburger.addEventListener("click", function () {
+                navLinks.classList.toggle("active");
+            });
+        });
+        </script>
+        <div class="nav-hamburger">☰</div>
+    </nav>
+   <section id="testimonials" class="test" style="background-color: whitesmoke;">
+   
+    <section class="RV-testimonial-section">
+        <h2 class="RV-section-title">What People Say</h2>
+        <!-- <p class="RV-section-subtitle">Lorem ipsum is Simply Dummy Text Of The Printing And Typesetting Industry.</p> -->
+        
+        <div class="RV-testimonial-container">
+          
+            
+            <div class="RV-testimonial-slider" id="testimonialSlider">
+                <%if(feedback.length>0){%>
+                    <%feedback.forEach((feedback)=>{%>
+                        <div class="RV-testimonial-card">
+                            <div class="RV-stars">
+                                <% for (let i = 0; i < feedback.rating; i++) { %>
+                                    ★
+                                <% } %>
+                            </div>
+                            <div class="RV-quote-icon">"</div>
+                            <p class="RV-testimonial-text"><%=feedback.message%></p>
+                            <div class="RV-testimonial-author">
+                                <img src="/images/review.jpg" alt="Author" class="RV-author-img">
+                                <div class="RV-author-name"><%=feedback.name%></div>
+                            </div>
+                        </div>
+                   <% })%>
+              <% }%>
+                
+            </div>
+            
+            <div class="RV-swiper-button RV-swiper-button-prev" onclick="moveSlider(-1)">❮</div>
+            <div class="RV-swiper-button RV-swiper-button-next" onclick="moveSlider(1)">❯</div>
+    </div>
+</section>
+    <script>
+        let currentPosition = 0;
+        const slider = document.getElementById('testimonialSlider');
+        const cards = document.querySelectorAll('.RV-testimonial-card');
+        const cardWidth = cards[0].offsetWidth + 20; // Card width + margin
+        const totalCards = cards.length;
+        let visibleCards = 3;
+        
+        // Update visible cards based on screen size
+        function updateVisibleCards() {
+            if (window.innerWidth >= 768) {
+                visibleCards = 3;
+            } else {
+                visibleCards = 1;
+            }
+        }
+        
+        function moveSlider(direction) {
+            updateVisibleCards();
+            
+            // Calculate max position (how far slider can move)
+            const maxPosition = totalCards - visibleCards;
+            
+            // Update position
+            currentPosition += direction;
+            
+            // Loop back to beginning/end if needed
+            if (currentPosition < 0) {
+                currentPosition = maxPosition;
+            } else if (currentPosition > maxPosition) {
+                currentPosition = 0;
+            }
+            
+            // Move the slider
+            const translateValue = -currentPosition * (100 / visibleCards) + '%';
+            slider.style.transform = `translateX(${translateValue})`;
+        }
+        
+        // Initial setup
+        updateVisibleCards();
+        
+        // Update on window resize
+        window.addEventListener('resize', function() {
+            updateVisibleCards();
+            // Reset position on resize to avoid layout issues
+            currentPosition = 0;
+            slider.style.transform = 'translateX(0)';
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function() {
+  let currentPosition = 0;
+  const slider = document.getElementById('testimonialSlider');
+  const cards = document.querySelectorAll('.RV-testimonial-card');
+  let totalCards = cards.length;
+  let visibleCards = 3;
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  // Function to update visible cards based on screen size
+  function updateVisibleCards() {
+    if (window.innerWidth >= 768) {
+      visibleCards = 3;
+    } else {
+      visibleCards = 1;
+    }
+  }
+  
+  // Function to move the slider
+  function moveSlider(direction) {
+    updateVisibleCards();
+    
+    // Calculate max position
+    const maxPosition = totalCards - visibleCards;
+    
+    // Update position
+    currentPosition += direction;
+    
+    // Loop back to beginning/end if needed
+    if (currentPosition < 0) {
+      currentPosition = maxPosition;
+    } else if (currentPosition > maxPosition) {
+      currentPosition = 0;
+    }
+    
+    // Move the slider - use percentage-based translation for consistent sizing
+    const translateValue = -currentPosition * (100 / visibleCards) + '%';
+    slider.style.transform = `translateX(${translateValue})`;
+  }
+  
+  // Touch event handlers
+  function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+  }
+  
+  function handleTouchEnd(event) {
+    touchEndX = event.changedTouches[0].clientX;
+    handleSwipe();
+  }
+  
+  function handleSwipe() {
+    const touchThreshold = 50; // Minimum distance to register as swipe
+    // Calculate swipe distance
+    const swipeDistance = touchEndX - touchStartX;
+    
+    if (swipeDistance > touchThreshold) {
+      // Swiped right - show previous slide
+      moveSlider(-1);
+    } else if (swipeDistance < -touchThreshold) {
+      // Swiped left - show next slide
+      moveSlider(1);
+    }
+  }
+  
+  // Add touch event listeners
+  slider.addEventListener('touchstart', handleTouchStart, false);
+  slider.addEventListener('touchend', handleTouchEnd, false);
+  
+  // Add click event listeners to nav buttons
+  const prevButton = document.querySelector('.RV-swiper-button-prev');
+  const nextButton = document.querySelector('.RV-swiper-button-next');
+  
+  if (prevButton) {
+    prevButton.addEventListener('click', function() {
+      moveSlider(-1);
+    });
+  }
+  
+  if (nextButton) {
+    nextButton.addEventListener('click', function() {
+      moveSlider(1);
+    });
+  }
+  
+  // Initialize on page load
+  updateVisibleCards();
+  
+  // Update on window resize
+  window.addEventListener('resize', function() {
+    updateVisibleCards();
+    // Reset position on resize
+    currentPosition = 0;
+    slider.style.transform = 'translateX(0)';
+  });
+});
+    </script>
+</section>
+    
+
+    
+<footer class="footer-main">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-nav">
+                <img src="/images/logo.png" alt="BongPizza Logo" class="footer-logo">
+                <p class="footer-text">A Touch of Bengal</p>
+               
+            </div>
+            <div class="footer-nav">
+                <h4 class="footer-heading">Home</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="./about.html" class="footer-link">About</a></li>
+                    <li class="footer-list-item"><a href="./menu.html" class="footer-link">Menu</a></li>
+                    <li class="footer-list-item"><a href="./Career.html" class="footer-link">Career</a></li>
+                    <li class="footer-list-item"><a href="./store.html" class="footer-link">Our Store</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4 class="footer-heading">Our Store</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="./Getfreanches.html" class="footer-link">Get Franchise</a></li>
+                    <li class="footer-list-item"><a href="./testimonial.html" class="footer-link">Testimonials</a></li>
+                    <!-- <li class="footer-list-item"><a href="#" class="footer-link">Responsible Disclosure</a></li> -->
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4 class="footer-heading">Support</h4>
+                <ul class="footer-list">
+                    <li class="footer-list-item"><a href="./Contact.html" class="footer-link">Get Help</a></li>
+                    <li class="footer-list-item"><a href="#" class="footer-link">Get Feedback</a></li>
+                    <li class="footer-list-item"><a href="./Contact.html" class="footer-link">Contact Us</a></li>
+                    <li class="footer-list-item"><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social-icons">
+                <a href="#" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="footer-social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="footer-social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="footer-text">&copy; 2025 Bong Pizza. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+   
+</body>
+</html>

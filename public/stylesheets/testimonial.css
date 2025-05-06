@@ -1,0 +1,525 @@
+
+/* nav */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;700&family=Prata&family=Poppins:wght@300;400;600&display=swap');
+
+.nav-container {
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    position: relative;
+    z-index: 100;
+    width: 100vw; /* Use viewport width instead of 100% */
+    margin-left: calc(-50vw + 50%); /* Center it if parent has width constraints */
+    box-sizing: border-box; /* Ensure padding doesn't add to width */
+}
+
+.test{
+    background-image: url('/public/images/background/bg3.png');
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    
+}
+/* Logo Section */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #4a2f1d;
+}
+
+.nav-logo img {
+    width: 100px;
+   
+}
+
+.nav-name {
+    text-shadow: 2px 2px 4px rgb(239, 239, 4);
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4a2f1d;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #c17756;
+}
+
+
+
+/* Hamburger Menu (Hidden by Default) */
+.nav-hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #4a2f1d;
+}
+
+/* Responsive Navigation */
+@media (max-width: 992px) {
+    .nav-hamburger {
+        display: block;
+        z-index: 100;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 50%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        width: 100%;
+        
+    }
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+.RV-testimonial-section {
+    padding: 60px 0;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url('./images/Rectangle 37.png');
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.RV-section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.RV-section-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.RV-testimonial-container {
+    position: relative;
+    padding: 20px 40px;
+    overflow: hidden;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+
+
+.RV-testimonial-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.RV-testimonial-card {
+    flex: 0 0 100%;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin: 0 10px;
+    min-width: 280px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.RV-stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.RV-quote-icon {
+    font-size: 2rem;
+    color: #e1e1e1;
+    margin-bottom: 15px;
+}
+
+.RV-testimonial-text {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.RV-testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
+
+.RV-author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.RV-author-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.RV-swiper-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #ff5722;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.RV-swiper-button:hover {
+    background-color: #e64a19;
+}
+
+.RV-swiper-button-prev {
+    left: 10px;
+}
+
+.RV-swiper-button-next {
+    right: 10px;
+}
+
+@media (min-width: 1024px){
+    .RV-testimonial-section {
+        background-size: 50%;
+    }
+}
+
+/* @media(max-width: 1440px){
+    .RV-testimonial-section {
+        background-size: 80%;
+    }
+} */
+
+/* Responsive styles */
+@media(min-width:320px) and (max-width:375px){
+    /* Remove fixed width that was causing horizontal overflow */
+    .test{
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .RV-testimonial-section{
+        width: 100%;
+        padding: 40px 15px;
+    }
+    
+    .nav-container{
+        width: 100%;
+        margin-left: 0;
+        padding: 1rem 4%;
+    }
+    
+    /* Fix footer width */
+    .footer-main {
+        width: 100%;
+    }
+    
+    /* Fix container widths */
+    .footer-container,
+    .RV-testimonial-container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Global fixes to prevent horizontal scrolling */
+body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix navigation container that was causing overflow */
+.nav-container {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    box-sizing: border-box;
+}
+
+/* Make testimonial section responsive */
+.RV-testimonial-section {
+    width: 100%;
+    max-width: 100%;
+    padding: 60px 15px;
+    box-sizing: border-box;
+}
+@media (max-width: 768px) {
+
+
+    .RV-testimonial-section {
+        background-size: 80%;
+    }
+    .RV-testimonial-slider {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .RV-testimonial-card {
+        flex: 0 0 calc(33.333% - 20px);
+    }
+}
+@media (max-width: 767px) {
+    .RV-testimonial-slider {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 90%;
+      gap: 20px;
+    }
+    
+    .RV-testimonial-card {
+      flex: 0 0 100%;  /* Make cards take full width on mobile */
+      min-width: 0;    /* Override the min-width */
+      width: 100%;     /* Force full width */
+      margin: -1%;       /* Remove margins causing overlap */
+      box-sizing: border-box;
+    }
+  }
+  
+@media (max-width: 425px) {
+
+    .RV-testimonial-section{
+        background-size: 100%;
+    }
+
+    .RV-section-title {
+        font-size: 2rem;
+    }
+    
+    .RV-testimonial-container {
+        padding: 15px 40px;
+    }
+    
+    .RV-testimonial-card {
+        padding: 20px 20px;
+    }
+}
+
+@media(min-width:320px) and (max-width:375px){
+    .test{
+        width:  48vh;
+    }
+    .RV-testimonial-section{
+        width: 45vh;
+    }
+    .nav-container{
+        width: 44vh;
+    }
+    .footer{
+        width: 48vh;
+    }
+    .test {
+        width: 100%;     /* Replace fixed width (48vh) */
+      }
+      .RV-testimonial-section {
+        width: 100%;     /* Replace fixed width (45vh) */
+      }
+    
+}
+
+/* footer */
+.footer-social-icon {
+    text-decoration: none !important; /* Remove underline */
+    border-bottom: none; /* Ensure no bottom border */
+}
+
+.footer-body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+.footer-list {
+    list-style: none;
+}
+
+.footer-img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer Styles */
+.footer-main {
+    background-color: #a44104;
+    color: #fff;
+    padding: 40px 0 20px;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    max-width: 150px;
+    margin-bottom: 15px;
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    left: 22%;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0px;
+    height: 2px;
+    background-color: #fff;
+}
+
+.footer-list-item {
+    margin-bottom: 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.footer-social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.footer-social-icon {
+    width: 50px; /* Increased size */
+    height: 50px; /* Increased size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white; /* White background */
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Change color on hover */
+.footer-social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    color: #ffcc00; /* Change icon color on hover */
+}
+
+/* Individual colors for each icon */
+.footer-social-icon i.fa-instagram {
+    color: #E1306C; /* Instagram - Pink */
+}
+
+.footer-social-icon i.fa-facebook-f {
+    color: #1877F2; /* Facebook - Blue */
+}
+
+.footer-social-icon i.fa-youtube {
+    color: #FF0000; /* YouTube - Red */
+}
+
+/* Copyright */
+.footer-copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 319px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
