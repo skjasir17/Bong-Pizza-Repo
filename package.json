@@ -4,7 +4,8 @@
   "description": "Bong Pizza is a fusion restaurant project that brings together Bengali spices and Italian pizza traditions. The website features multiple pages including Home, About, Menu, Recipes, and more—all tied together with a unique aesthetic inspired by both cultures.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
